@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>body'oS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="desktop">
+
+        <h1>body'oS</h1>
+
+        <div class="icons">
+            <button onclick="openWindow('about')">
+                💻
+                <span>About</span>
+            </button>
+
+            <button onclick="openWindow('notes')">
+                📝
+                <span>Notes</span>
+            </button>
+
+            <button onclick="openWindow('files')">
+                📁
+                <span>Files</span>
+            </button>
+        </div>
+
+
+        <!-- About Window -->
+        <div id="about" class="window">
+            <div class="title-bar" onmousedown="drag(event)">
+                body'oS
+                <button onclick="closeWindow('about')">×</button>
+            </div>
+
+            <div class="window-content">
+                <h2>Welcome 👋</h2>
+                <p>This is my little web OS.</p>
+                <p>Made for the Stardance WebOS 1 mission.</p>
+            </div>
+        </div>
+
+
+        <!-- Notes Window -->
+        <div id="notes" class="window">
+            <div class="title-bar" onmousedown="drag(event)">
+                Notes
+                <button onclick="closeWindow('notes')">×</button>
+            </div>
+
+            <div class="window-content">
+                <textarea placeholder="Write something..."></textarea>
+            </div>
+        </div>
+
+
+        <!-- Files Window -->
+        <div id="files" class="window">
+            <div class="title-bar" onmousedown="drag(event)">
+                Files
+                <button onclick="closeWindow('files')">×</button>
+            </div>
+
+            <div class="window-content">
+                <p>📄 hello.txt</p>
+                <p>📄 projects.txt</p>
+                <p>⭐ cool_stuff</p>
+            </div>
+        </div>
+
+
+        <!-- Taskbar -->
+        <footer class="taskbar">
+            <button onclick="openWindow('about')">body'oS</button>
+            <span id="clock"></span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

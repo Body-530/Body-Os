@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.desktop {
+    height: 100vh;
+    padding: 25px;
+    background: linear-gradient(135deg, #18212b, #293b4d);
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.icons button {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.icons span {
+    display: block;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.window {
+    display: none;
+    position: absolute;
+    top: 150px;
+    left: 280px;
+    width: 330px;
+    background: #f1f1f1;
+    color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px #0006;
+}
+
+.title-bar {
+    background: #303c49;
+    color: white;
+    padding: 10px 12px;
+    cursor: move;
+    user-select: none;
+}
+
+.title-bar button {
+    float: right;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.window-content {
+    padding: 18px;
+}
+
+textarea {
+    width: 100%;
+    height: 130px;
+    padding: 10px;
+    resize: none;
+}
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 15px;
+    background: #111820;
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskbar button {
+    background: #263544;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
