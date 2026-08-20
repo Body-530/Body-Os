@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>body'oS</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="desktop">
+    <div class="desktop">
 
-        <h1>body'oS</h1>
+        <!-- Top of desktop -->
 
-        <div class="icons">
+        <div class="top">
+
+            <div>
+                <h1>body'oS</h1>
+                <p id="greeting">Hey body 👋</p>
+            </div>
+
+            <div class="date-box">
+                <div id="clock">00:00</div>
+                <div id="date">Loading...</div>
+            </div>
+
+        </div>
+
+
+        <!-- Desktop icons -->
+
+        <div class="desktop-icons">
+
             <button onclick="openWindow('about')">
-                💻
-                <span>About</span>
+                👤
+                <span>About Me</span>
             </button>
 
             <button onclick="openWindow('notes')">
@@ -28,60 +48,361 @@
                 📁
                 <span>Files</span>
             </button>
+
+            <button onclick="openWindow('calculator')">
+                🧮
+                <span>Calculator</span>
+            </button>
+
+            <button onclick="openWindow('games')">
+                🎮
+                <span>Games</span>
+            </button>
+
+            <button onclick="openWindow('music')">
+                🎵
+                <span>Music</span>
+            </button>
+
+            <button onclick="openWindow('settings')">
+                ⚙️
+                <span>Settings</span>
+            </button>
+
+            <button onclick="openWindow('trash')">
+                🗑️
+                <span>Trash</span>
+            </button>
+
         </div>
 
 
-        <!-- About Window -->
+        <!-- ABOUT -->
+
         <div id="about" class="window">
+
             <div class="title-bar" onmousedown="drag(event)">
-                body'oS
-                <button onclick="closeWindow('about')">×</button>
+                <span>👤 About Me</span>
+
+                <button onclick="closeWindow('about')">
+                    ×
+                </button>
             </div>
 
             <div class="window-content">
-                <h2>Welcome 👋</h2>
-                <p>This is my little web OS.</p>
-                <p>Made for the Stardance WebOS 1 mission.</p>
+
+                <h2>Hey 👋</h2>
+
+                <p>
+                    Welcome to body'oS.
+                </p>
+
+                <p>
+                    I'm Body, and this is my little web OS.
+                </p>
+
+                <p>
+                    I made this project for Stardance WebOS 1.
+                </p>
+
+                <hr>
+
+                <p>💻 I like programming</p>
+                <p>⚡ Interested in electrical engineering</p>
+                <p>🤖 I like robotics</p>
+                <p>🎮 I make small games</p>
+
             </div>
+
         </div>
 
 
-        <!-- Notes Window -->
+        <!-- NOTES -->
+
         <div id="notes" class="window">
+
             <div class="title-bar" onmousedown="drag(event)">
-                Notes
-                <button onclick="closeWindow('notes')">×</button>
+                <span>📝 Notes</span>
+
+                <button onclick="closeWindow('notes')">
+                    ×
+                </button>
             </div>
 
             <div class="window-content">
-                <textarea placeholder="Write something..."></textarea>
+
+                <p>Write something here:</p>
+
+                <textarea
+                    id="notesText"
+                    placeholder="Type your notes..."></textarea>
+
+                <button onclick="saveNotes()">
+                    Save
+                </button>
+
+                <button onclick="clearNotes()">
+                    Clear
+                </button>
+
+                <p id="noteStatus"></p>
+
             </div>
+
         </div>
 
 
-        <!-- Files Window -->
+        <!-- FILES -->
+
         <div id="files" class="window">
+
             <div class="title-bar" onmousedown="drag(event)">
-                Files
-                <button onclick="closeWindow('files')">×</button>
+                <span>📁 Files</span>
+
+                <button onclick="closeWindow('files')">
+                    ×
+                </button>
             </div>
 
             <div class="window-content">
-                <p>📄 hello.txt</p>
+
+                <p>📄 README.txt</p>
                 <p>📄 projects.txt</p>
-                <p>⭐ cool_stuff</p>
+                <p>📄 ideas.txt</p>
+                <p>📁 school</p>
+                <p>📁 projects</p>
+                <p>⭐ body'oS</p>
+
             </div>
+
         </div>
 
 
-        <!-- Taskbar -->
-        <footer class="taskbar">
-            <button onclick="openWindow('about')">body'oS</button>
-            <span id="clock"></span>
-        </footer>
+        <!-- CALCULATOR -->
 
-    </main>
+        <div id="calculator" class="window">
+
+            <div class="title-bar" onmousedown="drag(event)">
+                <span>🧮 Calculator</span>
+
+                <button onclick="closeWindow('calculator')">
+                    ×
+                </button>
+            </div>
+
+            <div class="window-content">
+
+                <input
+                    type="text"
+                    id="calcDisplay"
+                    readonly>
+
+                <div class="calculator-buttons">
+
+                    <button onclick="calcInput('7')">7</button>
+                    <button onclick="calcInput('8')">8</button>
+                    <button onclick="calcInput('9')">9</button>
+                    <button onclick="calcInput('/')">÷</button>
+
+                    <button onclick="calcInput('4')">4</button>
+                    <button onclick="calcInput('5')">5</button>
+                    <button onclick="calcInput('6')">6</button>
+                    <button onclick="calcInput('*')">×</button>
+
+                    <button onclick="calcInput('1')">1</button>
+                    <button onclick="calcInput('2')">2</button>
+                    <button onclick="calcInput('3')">3</button>
+                    <button onclick="calcInput('-')">−</button>
+
+                    <button onclick="calcInput('0')">0</button>
+                    <button onclick="calcInput('.')">.</button>
+                    <button onclick="calculate()">=</button>
+                    <button onclick="calcInput('+')">+</button>
+
+                    <button onclick="clearCalculator()">
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- GAMES -->
+
+        <div id="games" class="window">
+
+            <div class="title-bar" onmousedown="drag(event)">
+                <span>🎮 Games</span>
+
+                <button onclick="closeWindow('games')">
+                    ×
+                </button>
+            </div>
+
+            <div class="window-content">
+
+                <h2>Mini Game</h2>
+
+                <p>
+                    Guess the number from 1 to 10.
+                </p>
+
+                <input
+                    type="number"
+                    id="guessInput"
+                    min="1"
+                    max="10">
+
+                <button onclick="guessNumber()">
+                    Guess
+                </button>
+
+                <p id="gameResult"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- MUSIC -->
+
+        <div id="music" class="window">
+
+            <div class="title-bar" onmousedown="drag(event)">
+                <span>🎵 Music</span>
+
+                <button onclick="closeWindow('music')">
+                    ×
+                </button>
+            </div>
+
+            <div class="window-content">
+
+                <h2>body'oS player</h2>
+
+                <p id="songName">
+                    Nothing playing
+                </p>
+
+                <button onclick="playSong()">
+                    ▶ Play
+                </button>
+
+                <button onclick="stopSong()">
+                    ■ Stop
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SETTINGS -->
+
+        <div id="settings" class="window">
+
+            <div class="title-bar" onmousedown="drag(event)">
+                <span>⚙️ Settings</span>
+
+                <button onclick="closeWindow('settings')">
+                    ×
+                </button>
+            </div>
+
+            <div class="window-content">
+
+                <p>Desktop style</p>
+
+                <button onclick="changeDesktop('green')">
+                    Green
+                </button>
+
+                <button onclick="changeDesktop('blue')">
+                    Blue
+                </button>
+
+                <button onclick="changeDesktop('dark')">
+                    Dark
+                </button>
+
+                <hr>
+
+                <button onclick="resetDesktop()">
+                    Reset
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRASH -->
+
+        <div id="trash" class="window">
+
+            <div class="title-bar" onmousedown="drag(event)">
+                <span>🗑️ Trash</span>
+
+                <button onclick="closeWindow('trash')">
+                    ×
+                </button>
+            </div>
+
+            <div class="window-content">
+
+                <p>Nothing here.</p>
+
+                <button onclick="emptyTrash()">
+                    Empty Trash
+                </button>
+
+                <p id="trashMessage"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- TASKBAR -->
+
+        <div class="taskbar">
+
+            <button
+                class="start-button"
+                onclick="openWindow('about')">
+                body'oS
+            </button>
+
+            <div class="taskbar-buttons">
+
+                <button onclick="openWindow('notes')">
+                    📝
+                </button>
+
+                <button onclick="openWindow('calculator')">
+                    🧮
+                </button>
+
+                <button onclick="openWindow('settings')">
+                    ⚙️
+                </button>
+
+            </div>
+
+            <div id="taskbarClock">
+                00:00
+            </div>
+
+        </div>
+
+    </div>
+
 
     <script src="script.js"></script>
+
 </body>
+
 </html>
