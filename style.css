@@ -5,65 +5,106 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: white;
     overflow: hidden;
 }
 
 .desktop {
     height: 100vh;
     padding: 25px;
-    background: linear-gradient(135deg, #18212b, #293b4d);
+    background: #d8eee7;
+    color: #263b36;
+    transition: background 0.3s;
+}
+
+/* top */
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 32px;
 }
 
-.icons {
-    display: flex;
+.welcome {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.date-box {
+    text-align: right;
+}
+
+#clock {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#date {
+    font-size: 13px;
+}
+
+
+/* desktop icons */
+
+.desktop-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
     gap: 20px;
     margin-top: 35px;
 }
 
-.icons button {
-    border: none;
+.desktop-icons button {
+    width: 80px;
+    min-height: 70px;
+    border: 0;
     background: transparent;
-    color: white;
-    font-size: 30px;
+    color: #263b36;
     cursor: pointer;
+    font-size: 30px;
+    border-radius: 8px;
 }
 
-.icons span {
-    display: block;
-    font-size: 13px;
-    margin-top: 5px;
+.desktop-icons button:hover {
+    background: #c1ddd4;
 }
+
+.desktop-icons span {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+
+/* windows */
 
 .window {
     display: none;
     position: absolute;
     top: 150px;
-    left: 280px;
-    width: 330px;
-    background: #f1f1f1;
-    color: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px #0006;
+    left: 300px;
+    width: 350px;
+    background: #fffdf5;
+    color: #263b36;
+    border: 2px solid #263b36;
+    box-shadow: 5px 5px 0 #263b36;
 }
 
 .title-bar {
-    background: #303c49;
+    height: 38px;
+    padding: 8px 10px;
+    background: #263b36;
     color: white;
-    padding: 10px 12px;
     cursor: move;
     user-select: none;
 }
 
 .title-bar button {
     float: right;
-    border: none;
+    border: 0;
     background: transparent;
     color: white;
     font-size: 20px;
@@ -71,32 +112,170 @@ h1 {
 }
 
 .window-content {
-    padding: 18px;
+    padding: 16px;
+    min-height: 120px;
 }
+
+.window-content h2 {
+    margin-top: 0;
+}
+
+.window-content hr {
+    border: 0;
+    border-top: 1px solid #b7c9c2;
+}
+
+
+/* notes */
 
 textarea {
     width: 100%;
-    height: 130px;
+    height: 140px;
     padding: 10px;
     resize: none;
+    border: 1px solid #263b36;
+    background: #fffef8;
+    font-family: Arial, sans-serif;
 }
+
+
+/* normal buttons */
+
+.window-content button {
+    padding: 7px 10px;
+    margin: 3px;
+    border: 1px solid #263b36;
+    background: #d8eee7;
+    color: #263b36;
+    cursor: pointer;
+}
+
+.window-content button:hover {
+    background: #bcd9d0;
+}
+
+
+/* calculator */
+
+#calcDisplay {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 18px;
+    border: 1px solid #263b36;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.calculator-buttons button {
+    margin: 0;
+    height: 38px;
+}
+
+.calculator-buttons button:last-child {
+    grid-column: span 4;
+}
+
+
+/* game */
+
+#guessInput {
+    width: 100px;
+    padding: 7px;
+    border: 1px solid #263b36;
+}
+
+
+/* taskbar */
 
 .taskbar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 8px 15px;
-    background: #111820;
+    height: 48px;
+    padding: 6px 12px;
+    background: #263b36;
+    color: white;
+
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
-.taskbar button {
-    background: #263544;
-    color: white;
-    border: none;
-    padding: 7px 12px;
-    border-radius: 6px;
+.start-button {
+    padding: 7px 14px;
+    border: 1px solid white;
+    background: #d8eee7;
+    color: #263b36;
     cursor: pointer;
+}
+
+.taskbar-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.taskbar-buttons button {
+    width: 35px;
+    height: 32px;
+    border: 0;
+    background: #405b53;
+    color: white;
+    cursor: pointer;
+}
+
+#taskbarClock {
+    font-size: 14px;
+}
+
+
+/* different desktop themes */
+
+.desktop.blue {
+    background: #dce8f5;
+}
+
+.desktop.dark {
+    background: #252c2b;
+    color: #eeeeee;
+}
+
+.desktop.dark .desktop-icons button {
+    color: #eeeeee;
+}
+
+.desktop.dark .desktop-icons button:hover {
+    background: #394441;
+}
+
+
+/* smaller screens */
+
+@media (max-width: 600px) {
+
+    .desktop {
+        padding: 15px;
+    }
+
+    .desktop-icons {
+        grid-template-columns: repeat(4, 65px);
+        gap: 10px;
+    }
+
+    .desktop-icons button {
+        width: 65px;
+    }
+
+    .window {
+        left: 30px;
+        top: 130px;
+        width: calc(100% - 60px);
+    }
+
 }
